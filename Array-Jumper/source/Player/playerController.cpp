@@ -1,14 +1,19 @@
 #include "../../header/Player/PlayerController.h"
 #include "../../header/Player/PlayerModel.h"
 #include "../../header/Player/PlayerView.h"
+#include "../../header/Level/LevelData.h"
+#include "../../header/Global/ServiceLocator.h"
 
 namespace Player
 {
-
+	using namespace Level;
+	using namespace Global;
+	using namespace Event;
 	PlayerController::PlayerController()
 	{
 		playerModel = new PlayerModel();
 		playerView = new PlayerView(this);
+
 	}
 
 	PlayerController::~PlayerController()
@@ -21,15 +26,75 @@ namespace Player
 		delete(playerModel);
 	}
 
+
 	void PlayerController::Initialize()
 	{
-		//playerModel->SetPlayerState(PlayerState::ALIVE);
 		playerView->Initialize();
+		eventService = ServiceLocator::getInstance()->getEventService();
 	}
+
 
 	void PlayerController::Update()
 	{
 		playerView->Update();
+		ReadInput();
+		//printf("CurrentPosition = %d\n", GetCurrentPosition());
+
+	}
+
+	void PlayerController::ReadInput()
+	{
+		if (eventService->pressedDKey() || eventService->pressedRightArrowKey())
+		{
+			Move(MovementDirection::FORWARD);
+		}
+		if (eventService->pressedLeftArrowKey() || eventService->pressedAKey())
+		{
+			Move(MovementDirection::BACKWARD);
+		}
+	}
+
+	void PlayerController::Move(MovementDirection direction)
+	{
+		int steps = 0, targetPosition;
+
+		switch (direction)
+		{
+		case MovementDirection::FORWARD:
+			printf("forward");
+			steps = 1;
+			break;
+
+		case MovementDirection::BACKWARD:
+			printf("Backward");
+			steps = -1;
+			break;
+		default:
+			steps = 0;
+			break;
+		}
+		targetPosition = playerModel->GetCurrentPosition() + steps;
+		//printf("targetPosiiton %d\n", targetPosition);
+
+		if (!IsPositionInBound(targetPosition))
+		{
+			return;
+		}
+		playerModel->SetCurrentPosition(targetPosition);
+
+		ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::MOVE);
+	}
+
+	bool PlayerController::IsPositionInBound(int targetPosition)
+	{
+		//printf("numberOfBoxes %d\n", LevelData::numberOfBoxes);
+
+		if (targetPosition >= 0 && targetPosition < LevelData::numberOfBoxes)
+		{
+			return true;
+		}
+
+		return false;
 	}
 
 	void PlayerController::Render()

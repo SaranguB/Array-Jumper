@@ -11,7 +11,7 @@ namespace Player
 	class PlayerModel
 	{
 	private:
-		int currentPosition;
+		int currentPosition = 0;
 		PlayerState playerState;
 
 	public:

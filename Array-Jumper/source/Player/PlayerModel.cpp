@@ -5,7 +5,6 @@ namespace Player
 	PlayerModel::PlayerModel()
 	{
 		playerState = PlayerState::ALIVE;
-		currentPosition = 0;
 	}
 	PlayerModel::~PlayerModel()
 	{
@@ -14,6 +13,7 @@ namespace Player
 	{
 		playerState = state;
 	}
+
 	PlayerState PlayerModel::GetPlayerState()
 	{
 		return playerState;
