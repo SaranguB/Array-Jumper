@@ -46,11 +46,27 @@ namespace Player
 	{
 		if (eventService->pressedDKey() || eventService->pressedRightArrowKey())
 		{
-			Move(MovementDirection::FORWARD);
+			if (eventService->heldSpaceKey())
+			{
+				Jump(MovementDirection::FORWARD);
+			}
+			else
+			{
+
+				Move(MovementDirection::FORWARD);
+			}
 		}
 		if (eventService->pressedLeftArrowKey() || eventService->pressedAKey())
 		{
-			Move(MovementDirection::BACKWARD);
+			if (eventService->heldSpaceKey())
+			{
+				Jump(MovementDirection::BACKWARD);
+			}
+			else
+			{
+				Move(MovementDirection::BACKWARD);
+			}
+
 		}
 	}
 
@@ -61,12 +77,12 @@ namespace Player
 		switch (direction)
 		{
 		case MovementDirection::FORWARD:
-			printf("forward");
+			//printf("forward");
 			steps = 1;
 			break;
 
 		case MovementDirection::BACKWARD:
-			printf("Backward");
+			//printf("Backward");
 			steps = -1;
 			break;
 		default:
@@ -95,6 +111,38 @@ namespace Player
 		}
 
 		return false;
+	}
+
+	void PlayerController::Jump(MovementDirection direction)
+	{
+		int currentPosition = playerModel->GetCurrentPosition();
+		BlockType boxValue = ServiceLocator::getInstance()->GetLevelService()->GetCurrentBoxValue(currentPosition);
+
+		int steps, targetPosition;
+		switch (direction)
+		{
+		case MovementDirection::FORWARD:
+			//printf("forward");
+			steps = boxValue;
+			break;
+
+		case MovementDirection::BACKWARD:
+			//printf("Backward");
+			steps = -boxValue;
+			break;
+		default:
+			steps = 0;
+			break;
+		}
+
+		targetPosition = currentPosition + steps;
+
+		if (!IsPositionInBound(targetPosition))
+		{
+			return;
+		}
+		playerModel->SetCurrentPosition(targetPosition);
+		ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::JUMP);
 	}
 
 	void PlayerController::Render()

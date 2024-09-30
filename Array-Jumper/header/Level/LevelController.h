@@ -1,5 +1,5 @@
 #pragma once
-#include "../../header/Level/BlockType.h"
+#include "BlockType.h"
 #include "LevelModel.h"
 
 namespace Level

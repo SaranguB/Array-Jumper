@@ -22,6 +22,8 @@ namespace Player
 
 		bool IsPositionInBound(int targetPosition);
 
+		void Jump(MovementDirection direction);
+
 		void ReadInput();
 	public:
 		PlayerController();
