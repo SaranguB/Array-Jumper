@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\UI\GameplayUI\GameplayUIController.cpp" />
     <ClCompile Include="source\Gameplay\gameplayModel.cpp" />
     <ClCompile Include="source\Gameplay\GameplayController.cpp" />
     <ClCompile Include="source\Gameplay\GameplayService.cpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="header\Main\GameService.h" />
     <ClInclude Include="header\Graphics\GraphicService.h" />
     <ClInclude Include="header\UI\Credits\CreditsScreenUIController.h" />
+    <ClInclude Include="header\UI\GameplayUI\GameplayUIController.h" />
     <ClInclude Include="header\UI\Instructions\InstructionsUIController.h" />
     <ClInclude Include="header\UI\MainMenu\MainMenuUIController.h" />
     <ClInclude Include="header\UI\SplashScreen\SplashScreenUIController.h" />

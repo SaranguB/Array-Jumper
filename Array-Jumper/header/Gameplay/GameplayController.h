@@ -12,6 +12,7 @@ namespace Gameplay
 		GameplayModel* gameplayModel;
 
 		void ProcessObstacle();
+		void GameOver();
 	public:
 		GameplayController();
 		~GameplayController();
@@ -25,6 +26,9 @@ namespace Gameplay
 
 		bool IsendBlock(Level::BlockType value);
 		void processEndBlock();
+
+		
+		void OnDeath();
 
 	};
 }

@@ -30,6 +30,19 @@ namespace Player
 	{
 		currentPosition = 0;
 		playerState = PlayerState::ALIVE;
+		currentLives = maxLives;
 
+	}
+	int PlayerModel::GetCurrentLives()
+	{
+		return currentLives;
+	}
+	void PlayerModel::DecrementLives()
+	{
+		currentLives--;
+	}
+	void PlayerModel::ResetPosition()
+	{
+		currentPosition = 0;
 	}
 }

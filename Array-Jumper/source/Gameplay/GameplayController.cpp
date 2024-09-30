@@ -71,6 +71,18 @@ namespace Gameplay
 		GameService::setGameState(GameState::CREDITS);
 	}
 
+	void GameplayController::OnDeath()
+	{
+		GameOver();
+	}
+
+	void GameplayController::GameOver()
+	{
+		GameService::setGameState(GameState::CREDITS);
+		ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::DEATH);
+
+	}
+
 	void GameplayController::ProcessObstacle()
 	{
 		ServiceLocator::getInstance()->GetPlayerService()->TakeDamage();
