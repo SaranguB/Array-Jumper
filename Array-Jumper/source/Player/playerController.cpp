@@ -170,4 +170,8 @@ namespace Player
 	{
 		playerModel->ResetPlayer();
 	}
+	void PlayerController::Reset()
+	{
+		playerModel->ResetPlayer();
+	}
 }

@@ -34,6 +34,11 @@ namespace Player
 		playerController->TakeDamage();
 	}
 
+	void PlayerService::LevelComplete()
+	{
+		playerController->Reset();
+	}
+
 	void PlayerService::Destroy()
 	{
 		delete(playerController);

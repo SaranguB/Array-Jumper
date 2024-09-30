@@ -23,5 +23,8 @@ namespace Gameplay
 		bool IsObsatcle(Level::BlockType value);
 		void OnPositionChanged(int posiition);
 
+		bool IsendBlock(Level::BlockType value);
+		void processEndBlock();
+
 	};
 }

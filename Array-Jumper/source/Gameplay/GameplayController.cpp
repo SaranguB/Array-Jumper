@@ -2,12 +2,15 @@
 #include "../../header/Gameplay/GameplayModel.h"
 #include "../../header/Gameplay/GameplayView.h"
 #include "../../header/Global/ServiceLocator.h"
+#include "../../header/Main/GameService.h"
 
 
 namespace Gameplay
 {
 	using namespace Global;
-	using namespace Level;;
+	using namespace Level;
+	using namespace Main;
+
 	GameplayController::GameplayController()
 	{
 		gameplayView = new GameplayView(this);
@@ -47,6 +50,25 @@ namespace Gameplay
 		{
 			ProcessObstacle();
 		}
+		if (IsendBlock(boxValue))
+		{
+			processEndBlock();
+		}
+	}
+
+	bool GameplayController::IsendBlock(Level::BlockType value)
+	{
+		if (value == BlockType::TARGET)
+			return true;
+		return false;
+
+	}
+
+	void GameplayController::processEndBlock()
+	{
+		ServiceLocator::getInstance()->GetPlayerService()->LevelComplete();
+		ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::LEVEL_COMPLETE);
+		GameService::setGameState(GameState::CREDITS);
 	}
 
 	void GameplayController::ProcessObstacle()

@@ -19,6 +19,8 @@ namespace Player
 
 		void TakeDamage();
 
+		void LevelComplete();
+
 	};
 
 }
