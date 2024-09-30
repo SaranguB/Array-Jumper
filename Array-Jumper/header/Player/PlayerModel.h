@@ -24,5 +24,7 @@ namespace Player
 		void SetCurrentPosition(int position);
 		int GetCurrentPosition();
 
+		void ResetPlayer();
+
 	};
 }

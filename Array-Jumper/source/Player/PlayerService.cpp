@@ -29,6 +29,11 @@ namespace Player
 		playerController->Render();
 	}
 
+	void PlayerService::TakeDamage()
+	{
+		playerController->TakeDamage();
+	}
+
 	void PlayerService::Destroy()
 	{
 		delete(playerController);

@@ -4,7 +4,7 @@ namespace Player
 {
 	PlayerModel::PlayerModel()
 	{
-		playerState = PlayerState::ALIVE;
+		ResetPlayer();
 	}
 	PlayerModel::~PlayerModel()
 	{
@@ -25,5 +25,11 @@ namespace Player
 	int PlayerModel::GetCurrentPosition()
 	{
 		return currentPosition;
+	}
+	void PlayerModel::ResetPlayer()
+	{
+		currentPosition = 0;
+		playerState = PlayerState::ALIVE;
+
 	}
 }
