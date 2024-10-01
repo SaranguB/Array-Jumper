@@ -4,8 +4,7 @@ namespace Player
 {
 	PlayerModel::PlayerModel()
 	{
-		playerState = PlayerState::ALIVE;
-		currentPosition = 0;
+		ResetPlayer();
 	}
 	PlayerModel::~PlayerModel()
 	{
@@ -14,6 +13,7 @@ namespace Player
 	{
 		playerState = state;
 	}
+
 	PlayerState PlayerModel::GetPlayerState()
 	{
 		return playerState;
@@ -25,5 +25,24 @@ namespace Player
 	int PlayerModel::GetCurrentPosition()
 	{
 		return currentPosition;
+	}
+	void PlayerModel::ResetPlayer()
+	{
+		currentPosition = 0;
+		playerState = PlayerState::ALIVE;
+		currentLives = maxLives;
+
+	}
+	int PlayerModel::GetCurrentLives()
+	{
+		return currentLives;
+	}
+	void PlayerModel::DecrementLives()
+	{
+		currentLives--;
+	}
+	void PlayerModel::ResetPosition()
+	{
+		currentPosition = 0;
 	}
 }

@@ -133,6 +133,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\UI\GameplayUI\GameplayUIController.cpp" />
+    <ClCompile Include="source\Gameplay\gameplayModel.cpp" />
+    <ClCompile Include="source\Gameplay\GameplayController.cpp" />
+    <ClCompile Include="source\Gameplay\GameplayService.cpp" />
+    <ClCompile Include="source\Gameplay\GameplayView.cpp" />
     <ClCompile Include="source\Global\Config.cpp" />
     <ClCompile Include="source\Event\EventService.cpp" />
     <ClCompile Include="main.cpp" />
@@ -160,6 +165,10 @@
     <ClCompile Include="source\UI\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="header\Gameplay\GameplayController.h" />
+    <ClInclude Include="header\Gameplay\GameplayModel.h" />
+    <ClInclude Include="header\Gameplay\GameplayService.h" />
+    <ClInclude Include="header\Gameplay\GameplayView.h" />
     <ClInclude Include="header\Global\Config.h" />
     <ClInclude Include="header\Event\EventService.h" />
     <ClInclude Include="header\Level\BlockType.h" />
@@ -168,6 +177,7 @@
     <ClInclude Include="header\Level\LevelModel.h" />
     <ClInclude Include="header\Level\LevelService.h" />
     <ClInclude Include="header\Level\LevelView.h" />
+    <ClInclude Include="header\Player\MovementDirection.h" />
     <ClInclude Include="header\Player\PlayerController.h" />
     <ClInclude Include="header\Player\PlayerModel.h" />
     <ClInclude Include="header\Player\PlayerService.h" />
@@ -176,6 +186,7 @@
     <ClInclude Include="header\Main\GameService.h" />
     <ClInclude Include="header\Graphics\GraphicService.h" />
     <ClInclude Include="header\UI\Credits\CreditsScreenUIController.h" />
+    <ClInclude Include="header\UI\GameplayUI\GameplayUIController.h" />
     <ClInclude Include="header\UI\Instructions\InstructionsUIController.h" />
     <ClInclude Include="header\UI\MainMenu\MainMenuUIController.h" />
     <ClInclude Include="header\UI\SplashScreen\SplashScreenUIController.h" />

@@ -1,10 +1,12 @@
 #pragma once
+#include "LevelData.h"
 
 
 namespace Level
 {
 	class LevelController;
 	struct BoxDimensions;
+
 	class LevelService
 	{
 	private:
@@ -21,5 +23,6 @@ namespace Level
 		void Render();
 
 		BoxDimensions GetBoxDimension();
+		BlockType GetCurrentBoxValue(int currentPosition);
 	};
 }

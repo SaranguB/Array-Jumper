@@ -79,7 +79,7 @@ namespace Player
 
 	sf::Vector2f PlayerView::calculatePlayerPosition()
 	{
-		//printf("spacing = %d", playerController->GetCurrentPosition());
+		//printf("CurrentPosition = %d\n", playerController->GetCurrentPosition());
 
 		float xPosition = currentBoxDimensions.boxSpacing + static_cast<float>(playerController->GetCurrentPosition()) *
 			(currentBoxDimensions.boxWidth + currentBoxDimensions.boxSpacing);
