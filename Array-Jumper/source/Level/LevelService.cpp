@@ -39,4 +39,16 @@ namespace Level
 	{
 		return levelController->GetCurrentBoxValue(curretnPosition);
 	}
+	bool LevelService::IsLastLevel()
+	{
+		return levelController->IsLastLevel();;
+	}
+	void LevelService::LoadLastLevel()
+	{
+		levelController->LoadLastLevel();
+	}
+	int LevelService::GetCurrentLevelNumber()
+	{
+		return levelController->GetCurrentLevelNumber();	
+	}
 }
