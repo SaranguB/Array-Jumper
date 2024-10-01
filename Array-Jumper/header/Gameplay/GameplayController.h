@@ -26,9 +26,12 @@ namespace Gameplay
 
 		bool IsendBlock(Level::BlockType value);
 		void processEndBlock();
-
+		bool IslastLevel();
+		void LoadNextLevel();
 		
 		void OnDeath();
+
+		void GameWon();
 
 	};
 }
