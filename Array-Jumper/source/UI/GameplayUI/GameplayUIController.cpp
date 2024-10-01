@@ -27,25 +27,25 @@ namespace UI
 		void GameplayUIController::update()
 		{
 			updateLifeCountText();
-			//updateLevelNumberText();
+			updateLevelNumberText();
 		}
 
 		void GameplayUIController::render()
 		{
 			life_count_text->render();
-			//level_number_text->render();
+			level_number_text->render();
 		}
 
 		void GameplayUIController::createTexts()
 		{
 			life_count_text = new TextView();
-			//level_number_text = new TextView();
+			level_number_text = new TextView();
 		}
 
 		void GameplayUIController::initializeTexts()
 		{
 			initializeLifeCountText();
-			//initializeLevelNumberText();
+			initializeLevelNumberText();
 		}
 
 		void GameplayUIController::initializeLifeCountText()
@@ -57,11 +57,11 @@ namespace UI
 			life_count_text->initialize("0", sf::Vector2f(x_position, y_position), FontType::BUBBLE_BOBBLE, font_size, sf::Color::White);
 		}
 
-		/*void GameplayUIController::initializeLevelNumberText()
+		void GameplayUIController::initializeLevelNumberText()
 		{
 			sf::Vector2f position(left_offset, top_offset);
 			level_number_text->initialize("0", position, FontType::BUBBLE_BOBBLE, font_size, sf::Color::White);
-		}*/
+		}
 
 		void GameplayUIController::updateLifeCountText()
 		{
@@ -73,7 +73,7 @@ namespace UI
 			life_count_text->update();
 		}
 
-		/*void GameplayUIController::updateLevelNumberText()
+		void GameplayUIController::updateLevelNumberText()
 		{
 			int level_number = ServiceLocator::getInstance()->GetLevelService()->GetCurrentLevelNumber();
 
@@ -81,7 +81,7 @@ namespace UI
 
 			level_number_text->setText(level_number_string);
 			level_number_text->update();
-		}*/
+		}
 
 		void GameplayUIController::destroy()
 		{

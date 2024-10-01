@@ -1,5 +1,6 @@
 #pragma once
 #include "../../header/Level/LevelData.h"
+#include "LevelConfig.h"
 
 
 namespace Level
@@ -18,13 +19,21 @@ namespace Level
 	class LevelModel
 	{
 	private:
-		LevelData currentLevelData;
-		
+		const int numberOfLevels = LevelConfig::numberOfLevels;
+		LevelConfig levelConfig;
+		int currentLevelIndex = 0;
+
 
 	public:
 		LevelModel();
 		~LevelModel();
 
 		BlockType GetCurrentBoxValue(int currentPosition);
+
+		void LoadNextLevel();
+		int GetCurrentLevelNumber();
+		bool IsLastlevel();
+
+		void Reset();
 	};
 }

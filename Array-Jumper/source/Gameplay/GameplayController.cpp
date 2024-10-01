@@ -68,12 +68,37 @@ namespace Gameplay
 	{
 		ServiceLocator::getInstance()->GetPlayerService()->LevelComplete();
 		ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::LEVEL_COMPLETE);
-		GameService::setGameState(GameState::CREDITS);
+
+		if (IslastLevel())
+		{
+			GameWon();
+			return;
+		}
+
+		LoadNextLevel();
+	}
+
+	bool GameplayController::IslastLevel()
+	{
+		return ServiceLocator::getInstance()->GetLevelService()->IsLastLevel();
+	}
+
+	void GameplayController::LoadNextLevel()
+	{
+		ServiceLocator::getInstance()->GetLevelService()->LoadLastLevel();
+
 	}
 
 	void GameplayController::OnDeath()
 	{
 		GameOver();
+	}
+
+	void GameplayController::GameWon()
+	{
+		GameService::setGameState(GameState::CREDITS);
+		ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::LEVEL_COMPLETE);
+
 	}
 
 	void GameplayController::GameOver()
